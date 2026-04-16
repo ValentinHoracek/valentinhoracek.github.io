@@ -1,0 +1,25 @@
+/*
+    Button
+*/
+.btn {
+    //border: solid 0.5rem $secondary-color;
+    border: none;
+    background: transparent;
+    //opacity: 0;
+    color: $secondary-color;
+    font-size: 4vh;
+    font-weight: 700;
+    align-items: center;
+    text-align: center;
+    height: 7vh;
+    width: 10vw;
+    &:hover {
+        background: $secondary-color;
+        //opacity: 1;
+        color: $primary-color;
+        height: 9vh;
+        width: 12vw;
+        font-size: 5vh;
+        @include EaseOut;
+    }
+}

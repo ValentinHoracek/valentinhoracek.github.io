@@ -1,0 +1,80 @@
+﻿/*
+    Mixins
+*/
+
+@mixin EaseOut
+{
+    transition: all 0.5s ease-out;
+}
+
+@mixin EaseOutFast {
+    transition: all 0.2s ease-out;
+}
+
+@mixin FontWeightGrow($color)
+{
+    text-shadow:
+        -0.5px -0.5px 0 SetTextColor($color),
+        0.5px -0.5px 0 SetTextColor($color),
+        -0.5px 0.5px 0 SetTextColor($color),
+        0.5px 0.5px 0 SetTextColor($color);
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+@mixin Theme($light-theme: true)
+{
+    @if $light-theme
+    {
+        background: lighten($primary-color, 100%);
+        color: darken($text-color, 100%);
+    }
+}
+
+@mixin NavigationAnimation
+{
+    animation: bugfix infinite 1s;
+    -webkit-animation: bugfix infinite 1s;
+
+    @keyframes bugfix 
+    {
+        from 
+        {
+            padding: 0;
+        }
+        to
+        {
+            padding: 0;
+        }
+    }
+    @-webkit-keyframes bugfix 
+    {
+        from 
+        {
+            padding: 0;
+        }
+        to
+        {
+            padding: 0;
+        }
+    }
+}
+
+/*
+    Media mixins
+*/
+@mixin MediaSmall 
+{
+    @media screen and (max-width: 768px)
+    {
+        @content;
+    }
+}
+
+@mixin MediaMedium {
+    @media screen and (min-width: 769px) and (max-width: 1170px) {
+        @content;
+    }
+}

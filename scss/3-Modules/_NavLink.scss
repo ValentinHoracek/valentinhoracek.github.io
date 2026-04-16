@@ -1,0 +1,39 @@
+﻿/*
+    Navigation
+*/
+
+.nav-link {
+    color: SetTextColor($primary-color);
+    text-decoration: none;
+    font-size: 3rem;
+
+
+    &:hover {
+        color: $primary-color;
+        font-size: 4rem;
+        @include EaseOut;
+    }
+
+    &.no-transition {
+        transition: none !important; // Disable all transitions temporarily
+    }
+}
+
+.nav-link.active {
+    color: $primary-color;
+    font-size: 4rem;
+}
+
+@include MediaSmall {
+    .nav-link {
+        font-size: 2rem;
+
+        &:hover {
+            font-size: 3rem;
+        }
+    }
+
+    .nav-link.active {
+        font-size: 3rem;
+    }
+}

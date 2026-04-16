@@ -1,0 +1,54 @@
+﻿.about-group {
+
+    .title {
+        text-align: center;
+        width: 80vw;
+        border-bottom: solid 0.2rem #fff;
+    }
+}
+
+.timeline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 80vw;
+    gap: 3rem;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+
+
+    .timeline-item {
+        width: 30%;
+        background-color: $secondary-color;
+        //border-radius: 1rem;
+        transform: skew(-5deg);
+        padding: 2rem;
+
+        &:hover {
+            transform: skew(-5deg) scale(1.1); // Slightly enlarges the div
+            @include EaseOut;
+        }
+
+        h2 {
+            border-bottom: solid 0.1rem #fff;
+        }
+    }
+}
+
+/* Responsive Design */
+@include MediaSmall {
+    .timeline {
+        .timeline-item {
+            width: 100%;
+        }
+    }
+}
+
+@include MediaMedium {
+    .timeline {
+        .timeline-item {
+            width: 100%;
+        }
+    }
+}
