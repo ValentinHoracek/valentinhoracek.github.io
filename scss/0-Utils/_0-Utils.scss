@@ -4,6 +4,6 @@
     variables or functions. They have no direct output.
 */
 
-@import "Variables";
-@import "Mixins";
-@import "Functions";
+@forward "Variables";
+@forward "Mixins";
+@forward "Functions";

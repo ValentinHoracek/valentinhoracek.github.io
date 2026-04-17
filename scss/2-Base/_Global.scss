@@ -1,6 +1,13 @@
 ﻿/*
     Base stylesheet
 */
+
+@use "../0-Utils/0-Utils" as *;
+
+html {
+    height: 100%;
+}
+
 * 
 {
     box-sizing: border-box;

@@ -4,7 +4,7 @@
     relatinf to a reusable component.
 */
 
-@import "Button";
-@import "Input";
-@import "Modal";
-@import "NavLink";
+@forward "Button";
+@forward "Input";
+@forward "Modal";
+@forward "NavLink";

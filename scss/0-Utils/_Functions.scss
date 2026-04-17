@@ -2,10 +2,12 @@
     Functions
 */
 
+@use "sass:color";
+
 //  Set Text Colour
 @function SetTextColor($color)
 {
-    @if (lightness($color) > 40)
+    @if (color.channel($color, "lightness", $space: hsl) > 40)
     {
         @return #000;
     }

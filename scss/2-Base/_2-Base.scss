@@ -4,6 +4,6 @@
     used in the project.
 */
 
-@import "Reset";
-@import "Global";
-@import "Typography";
+@forward "Reset";
+@forward "Global";
+@forward "Typography";

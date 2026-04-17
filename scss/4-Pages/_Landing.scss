@@ -2,24 +2,27 @@
     Landing page
 */
 
+@use "../0-Utils/0-Utils" as *;
 body.landing-page {
-    background: #0f172a;
-    color: #e2e8f0;
+    background: $primary-color;
+    color: SetTextColor($primary-color);
     font-family: "Hack", "IBM Plex Mono", monospace;
-    min-height: 100vh;
-    overflow-x: hidden;
+    height: 100vh;
+    overflow: hidden;
 }
 
 body.landing-page main {
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .landing {
-    --split-angle: 80%;
+    --split-angle: 73%;
     --split-bottom: calc(var(--split-angle) - 15%);
-    --accent-silver: #94a3b8;
+    --accent-silver: #{$tertiary-color};
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
     isolation: isolate;
 }
 
@@ -27,8 +30,10 @@ body.landing-page main {
     position: absolute;
     top: 0;
     bottom: 0;
+    height: 100%;
     width: 100%;
     padding: clamp(2rem, 4vw, 4rem);
+    padding-top: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,13 +73,13 @@ body.landing-page main {
 }
 
 .landing-panel--systems {
-    background: #0f172a;
-    color: #e2e8f0;
+    background: $primary-color;
+    color: SetTextColor($primary-color);
     width: 100%;
     left: 0;
     clip-path: polygon(0 0, var(--split-angle) 0, var(--split-bottom) 100%, 0 100%);
     z-index: 2;
-    border-right: 1px solid rgba(148, 163, 184, 0.28);
+    border-right: 1px solid rgba($tertiary-color, 0.28);
 }
 
 .landing-panel--systems::after {
@@ -85,8 +90,8 @@ body.landing-page main {
     width: 2px;
     height: 120%;
     transform: translateX(-50%) rotate(9deg);
-    background: rgba(226, 232, 240, 0.9);
-    box-shadow: 6px 0 0 rgba(148, 163, 184, 0.55), 0 0 0.9rem rgba(148, 163, 184, 0.35);
+    background: rgba($text-color, 0.9);
+    box-shadow: 6px 0 0 rgba($tertiary-color, 0.55), 0 0 0.9rem rgba($tertiary-color, 0.35);
     z-index: 9;
     pointer-events: none;
 }
@@ -98,27 +103,29 @@ body.landing-page main {
 
 .landing-panel--systems li::before {
     content: "* ";
-    color: #93c5fd;
+    color: $tertiary-color;
 }
 
 .landing-panel--systems .landing-panel__inner {
     margin-left: clamp(2rem, 8vw, 10rem);
     margin-right: auto;
+    max-width: clamp(14rem, calc(var(--split-bottom) - 8%), 32rem);
 }
 
 .landing-panel--performance {
-    background: #ffffff;
-    color: #0f172a;
+    background: $text-color;
+    color: $primary-color;
     width: 100%;
     right: 0;
     clip-path: polygon(calc(var(--split-angle) - 12%) 0, 100% 0, 100% 100%, calc(var(--split-bottom) - 12%) 100%);
     z-index: 3;
-    border-left: 1px solid rgba(148, 163, 184, 0.25);
+    border-left: 1px solid rgba($tertiary-color, 0.25);
 }
 
 .landing-panel--performance .landing-panel__inner {
     margin-right: clamp(2rem, 8vw, 10rem);
     margin-left: auto;
+    max-width: clamp(14rem, calc(100% - var(--split-angle) + 4%), 32rem);
 }
 
 .landing-panel--performance li {
@@ -130,7 +137,7 @@ body.landing-page main {
 
 .landing-panel--performance li::before {
     content: "+ ";
-    color: #0f172a;
+    color: SetTextColor($text-color);
     opacity: 0.7;
 }
 
@@ -141,8 +148,8 @@ body.landing-page main {
 .landing-anchor {
     position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: clamp(1.5rem, 10vw, 10rem);
+    transform: translateX(-50%);
     z-index: 20;
     font-size: clamp(1.8rem, 3.6vw, 3.2rem);
     line-height: 1.05;
@@ -150,42 +157,47 @@ body.landing-page main {
     text-transform: uppercase;
     font-weight: 800;
     text-align: center;
-    color: #f8fafc;
-    background: rgba(30, 41, 59, 0.9);
-    border: 1px solid rgba(148, 163, 184, 0.55);
+    background: rgba($secondary-color, 0.97);
+    border: none;
     backdrop-filter: blur(5px);
     padding: clamp(0.85rem, 1.5vw, 1.25rem) clamp(1rem, 2vw, 1.75rem);
-    box-shadow: 0 0.6rem 2rem rgba(15, 23, 42, 0.25);
+    box-shadow: 0 0.6rem 2rem rgba($primary-color, 0.25);
 }
 
 .landing-anchor__name {
     display: block;
+    border-bottom: 1px solid rgba($text-color, 0.7);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.landing-anchor__first-name {
+    color: $text-color;
+}
+
+.landing-anchor__surname {
+    color: $text-color;
 }
 
 .landing-anchor__icons {
-    margin-top: 0.85rem;
+    margin-top: 0.6rem;
     display: flex;
     justify-content: center;
-    gap: 0.75rem;
+    gap: 2rem;
 }
 
 .landing-anchor__icons a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 999px;
-    border: 1px solid rgba(148, 163, 184, 0.6);
-    color: #f8fafc;
-    background: rgba(30, 41, 59, 0.72);
+    font-size: clamp(1.8rem, 3.6vw, 3.2rem);
+    color: $text-color;
     @include EaseOutFast;
 }
 
 .landing-anchor__icons a:hover {
     transform: translateY(-2px);
-    border-color: rgba(226, 232, 240, 0.85);
-    background: rgba(30, 41, 59, 0.9);
+    color: $tertiary-color;
 }
 
 @include MediaSmall {
@@ -211,6 +223,7 @@ body.landing-page main {
     .landing-panel--performance .landing-panel__inner {
         margin-left: auto;
         margin-right: auto;
+        max-width: min(34rem, 92%);
     }
 
     .landing-panel--systems::after {
@@ -220,11 +233,12 @@ body.landing-page main {
         width: 100%;
         height: 2px;
         transform: none;
-        box-shadow: 0 6px 0 rgba(148, 163, 184, 0.45), 0 0 0.7rem rgba(148, 163, 184, 0.28);
+        box-shadow: 0 6px 0 rgba($tertiary-color, 0.45), 0 0 0.7rem rgba($tertiary-color, 0.28);
     }
 
     .landing-anchor {
         top: 50%;
+        transform: translate(-50%, -50%);
         width: calc(100% - 3rem);
         max-width: 24rem;
         font-size: clamp(1.2rem, 5.6vw, 2rem);
@@ -233,8 +247,12 @@ body.landing-page main {
     }
 
     .landing-anchor__icons a {
-        width: 1.9rem;
-        height: 1.9rem;
-        font-size: 1rem;
+        font-size: clamp(1.2rem, 5.6vw, 2rem);
+    }
+}
+
+@include MediaMedium {
+    .landing-anchor {
+        top: clamp(1rem, 5vw, 4rem);
     }
 }

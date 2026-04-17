@@ -2,6 +2,10 @@
     Mixins
 */
 
+@use "sass:color";
+@use "Variables" as *;
+@use "Functions" as *;
+
 @mixin EaseOut
 {
     transition: all 0.5s ease-out;
@@ -28,8 +32,8 @@
 {
     @if $light-theme
     {
-        background: lighten($primary-color, 100%);
-        color: darken($text-color, 100%);
+        background: color.adjust($primary-color, $lightness: 100%);
+        color: color.adjust($text-color, $lightness: -100%);
     }
 }
 

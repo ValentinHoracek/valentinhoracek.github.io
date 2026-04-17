@@ -4,7 +4,7 @@
     to a specific page.
 */
 
-@import "Home";
-@import "Developer";
-@import "About";
-@import "Landing";
+@forward "Home";
+@forward "Developer";
+@forward "About";
+@forward "Landing";

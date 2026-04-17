@@ -1,4 +1,6 @@
-﻿.about-group {
+﻿@use "../0-Utils/0-Utils" as *;
+
+.about-group {
 
     .title {
         text-align: center;

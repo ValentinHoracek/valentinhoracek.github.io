@@ -2,6 +2,7 @@
     Home apge
 */
 
+@use "../0-Utils/0-Utils" as *;
 /* Home container styles */
 #home {
     background: $primary-color;
