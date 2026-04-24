@@ -6,13 +6,31 @@
 @use "Variables" as *;
 @use "Functions" as *;
 
+@mixin Transition($property: all, $duration: 0.2s, $timing: ease-out)
+{
+    transition: $property $duration $timing;
+}
+
 @mixin EaseOut
 {
-    transition: all 0.5s ease-out;
+    @include Transition(all, 0.5s);
 }
 
 @mixin EaseOutFast {
-    transition: all 0.2s ease-out;
+    @include Transition(all, 0.2s);
+}
+
+@mixin EaseOutTransformFast {
+    @include Transition(transform, 0.2s);
+}
+
+@mixin VerticalGradient($from, $to, $fromLightness: 0%, $toLightness: 0%, $fromAlpha: 1, $toAlpha: 1, $angle: 180deg)
+{
+    background: linear-gradient(
+        $angle,
+        Tone($from, $fromLightness, $fromAlpha) 0%,
+        Tone($to, $toLightness, $toAlpha) 100%
+    );
 }
 
 @mixin FontWeightGrow($color)

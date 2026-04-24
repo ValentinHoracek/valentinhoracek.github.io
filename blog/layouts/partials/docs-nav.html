@@ -1,0 +1,20 @@
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+<div class="panel">
+    <p class="panel__label">Browse</p>
+    <div class="panel__section">
+        <a class="navigation-panel__home-link{{ if .IsHome }} is-active{{ end }}" href="{{ "" | relURL }}">Overview</a>
+    </div>
+
+    {{ range $posts.GroupByDate "2006" }}
+    <section class="navigation-tree">
+        <h2>{{ .Key }}</h2>
+        <ul>
+            {{ range .Pages.ByDate.Reverse }}
+            <li>
+                <a class="{{ if eq $.RelPermalink .RelPermalink }}is-active{{ end }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </li>
+            {{ end }}
+        </ul>
+    </section>
+    {{ end }}
+</div>

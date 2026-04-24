@@ -1,0 +1,16 @@
+{{ define "main" }}
+<article class="content-body post">
+    <div class="post-type">{{ with index .Params.categories 0 }}{{ . }}{{ else }}Article{{ end }}</div>
+    <h1>{{ .Title }}</h1>
+    <div class="post-meta">
+        <span>{{ .Date.Format "02 Jan 2006" }}</span>
+        {{ with .Params.categories }}
+        <span>{{ delimit . ", " }}</span>
+        {{ end }}
+    </div>
+
+    <div class="post-body">
+        {{ .Content }}
+    </div>
+</article>
+{{ end }}

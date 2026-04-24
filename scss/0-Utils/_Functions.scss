@@ -17,3 +17,8 @@
     }
 
 }
+
+@function Tone($color, $lightness: 0%, $alpha: 1)
+{
+    @return rgba(color.adjust($color, $lightness: $lightness), $alpha);
+}

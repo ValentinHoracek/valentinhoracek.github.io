@@ -1,0 +1,16 @@
+# Distribution / deployment output
+/dist/
+
+# Hugo generated artifacts
+/blog/public/
+/blog/resources/_gen/
+/blog/.hugo_build.lock
+
+# Common OS noise
+Thumbs.db
+.DS_Store
+
+.vscode/*
+
+# Local test content
+/blog/content/posts/2026/Test/
