@@ -27,7 +27,7 @@ jobs:
           extended: true
 
       - name: Build Hugo site into blog subpath
-        run: hugo --source blog --destination dist/blog --baseURL "/blog/"
+        run: cd blog && hugo --destination ../dist/blog --baseURL "/blog/"
 
       - name: Assemble Pages payload
         run: |
