@@ -1,0 +1,47 @@
+name: Build and Deploy Hugo Blog
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.125.7'
+          extended: true
+
+      - name: Build Hugo site into blog subpath
+        run: hugo --source blog --destination dist/blog --baseURL "/blog/"
+
+      - name: Assemble Pages payload
+        run: |
+          mkdir -p dist
+          cp index.html dist/index.html
+          cp -R css dist/css
+          cp -R assets dist/assets
+          touch dist/.nojekyll
+          if [ -f CNAME ]; then cp CNAME dist/CNAME; fi
+
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          force_orphan: true

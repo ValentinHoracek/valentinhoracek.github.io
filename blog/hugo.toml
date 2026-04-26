@@ -1,0 +1,28 @@
+baseURL = "https://example.com/blog/"
+languageCode = "en-us"
+title = "Valentin Horacek | Technical Journal"
+relativeURLs = false
+canonifyURLs = false
+
+[params]
+  description = "Exploring the architecture of code, the dynamics of leadership, and the discipline of movement."
+  landingPage = "/"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+  page = ["HTML"]
+
+[[menu.main]]
+  name = "Blog"
+  url = "/"
+  weight = 1

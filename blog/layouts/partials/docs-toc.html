@@ -1,0 +1,12 @@
+<div class="panel panel--toc">
+    <p class="panel__label">On This Page</p>
+    {{ if and .IsPage (ne .TableOfContents "") }}
+    <div class="toc-body">
+        {{ .TableOfContents }}
+    </div>
+    {{ else }}
+    <div class="toc-empty">
+        <p>Select a post to see its section outline.</p>
+    </div>
+    {{ end }}
+</div>

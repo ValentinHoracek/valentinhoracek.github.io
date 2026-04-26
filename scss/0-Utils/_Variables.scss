@@ -2,9 +2,51 @@
     Variables
 */
 
+@use "sass:color";
+
 $primary-color: #451212;
 $secondary-color: #2d0a0a;
-$tertiary-color: #853636;
+$tertiary-color: #5a1818;
 $text-color: #fff5f5;
+$title-text-color: #160505;
+$title-accent-color: #f0a5a5;
+
+// Shared typography tokens
+$font-family-base: "Hack", "IBM Plex Mono", monospace;
+$font-family-ui: "IBM Plex Mono", monospace;
+
+// Shared icon sizing token
+$icon-size: clamp(1.8rem, 3.6vw, 3.2rem);
+
+// Shared spacing tokens
+$space-xs: 0.5rem;
+$space-sm: 0.75rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+
+// Shared interactive tokens
+$interactive-hover: $tertiary-color;
+$header-link-light: $primary-color;
+$header-link-dark: $text-color;
+
+// Shared primary gradients
+$primary-gradient-start: color.adjust($primary-color, $lightness: -5%);
+$primary-gradient-end: $primary-color;
+$primary-gradient: linear-gradient(180deg, $primary-gradient-start 0%, $primary-gradient-end 100%);
+
+// Shared panel gradients
+$panel-gradient-start: rgba(color.adjust($secondary-color, $lightness: -1%), 0.97);
+$panel-gradient-end: rgba(color.adjust($secondary-color, $lightness: -7%), 0.97);
+$panel-gradient: linear-gradient(180deg, $panel-gradient-start 0%, $panel-gradient-end 100%);
+$panel-dark-shadow: rgba(color.adjust($secondary-color, $lightness: -10%), 0.34);
+
+$blog-dark-card-gradient-start: rgba($tertiary-color, 0.72);
+$blog-dark-card-gradient-end: rgba($primary-color, 0.68);
+$blog-light-card-gradient-start: rgba($primary-color, 0.94);
+$blog-light-card-gradient-end: rgba($secondary-color, 0.92);
+$blog-light-card-gradient: linear-gradient(180deg, $blog-light-card-gradient-start 0%, $blog-light-card-gradient-end 100%);
+$blog-dark-card-gradient: linear-gradient(180deg, $blog-dark-card-gradient-start 0%, $blog-dark-card-gradient-end 100%);
+
+// Shared landing gradients
 
 
